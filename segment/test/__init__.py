@@ -3,9 +3,13 @@ import pkgutil
 import logging
 import sys
 
+from .. import test
+
+
 def all_names():
     for _, modname, _ in pkgutil.iter_modules(__path__):
-        yield 'analytics.test.' + modname
+        yield test.__name__ + '.' + modname
+
 
 def all():
     logging.basicConfig(stream=sys.stderr)
